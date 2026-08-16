@@ -23,24 +23,85 @@
                     </button>
                 </form></li>
                 
-                <li><a href="#negOne" class="navItem"><p class="navNum">-1.</p> <p class="navName">Negative One</p></a></li>
+                <li class="rightItem"><a href="#negOne" class="navItem"><p class="navNum">-1.</p> <p class="navName">Negative One</p></a></li>
             </ul>
         </nav>
     </header>
+
+
+    <div id="textOverlay" class="text-overlay">
+        <div class="expanded-text-box">
+            <button id="closeTextButton" class="text-close-button" title="Close expanded text" aria-label="Close expanded text">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <h2>More text ...</h2>
+            <div id="expandedTextEditor" class="expanded-text-editor" contenteditable="true"></div>
+        </div>
+    </div>
+
+    <div id="graphOverlay" class="graph-overlay">
+        <div class="expanded-graph">
+            <button id="closeGraphButton" class="close-button" title="Close expanded graph" aria-label="Close expanded graph">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+
+            <div class="expanded-graph-left">
+                <h2>Graph</h2>
+                <div id="expandedGraphStage" class="graph-space"></div>
+            </div>
+
+            <div class="expanded-graph-right">
+                <h3>Tablular Info</h3>
+                <div class="sentence-table-container">
+                    <table class="sentence-table">
+                    <thead><tr><th>#</th><th>First Word</th><th>Length</th></tr></thead>
+                    <tbody id="sentenceTableBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="stats-section">
+                    <div class="stats-title">Stats</div>
+                    <div class="stats-grid">
+                        <div class="stat-item"><div class="stat-label">Common Word Starting</div><div id="commonStarterStat" class="stat-value">0.00%</div></div>
+                        <div class="stat-item"><div class="stat-label">Standard Deviation</div><div id="standardDeviationStat" class="stat-value">0.00 words</div></div>
+                        <div class="stat-item"><div class="stat-label">Average Sentence Length</div><div id="averageSentenceLengthStat" class="stat-value">0.00 words</div></div>
+                        <div class="stat-item"><div class="stat-label">Average First Word Length</div><div id="averageFirstWordLengthStat" class="stat-value">0.00 letters</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <p class="sectioned">--- no AI btw</p>
 
     <main>
         <section id="primary">
             <section id="left">
-                <h1>This is a sentance, with no message.</h1>
-                <br>
-                <input type="text" placeholder="Search..." class="searchInput">
-                <p>TextTextTextTextTextTextTextText TextTextTextTextTextTextText TextTextTextTextTextTextTextText TextTextTextTextTextTextText TextTextTextTextTextTextText TextTextTextTextTextTextText.</p>
+                    <div class="container-box">
+                        <h2>Big text that is Big.</h2>
+                        <div class="helper-text">Click and edit.</div>
+                        <div id="paragraphWrapper" class="paragraph-wrapper">
+                            <div id="liveTextSource" class="paragraph-editor" contenteditable="true">Type essay here later. Just demo. For graph on the side btw. HI. </div>
+                            <button id="resetTextButton" class="reset-text-button" title="Reset">
+                                ↺
+                            </button>
+                            <button id="expandTextButton" class="text-expand-button" title="Expand text" aria-label="Expand text">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
             </section>
             <section id="right">
-                <h1>Graph</h1>
-                <p>Not text.</p>
+                <div class="container-box graph-panel">
+                    <h2>Graph</h2>
+                    <div class="helper-text">Hover and Click.</div>
+                    <button id="expandGraphButton" class="expand-button" title="Expand graph" aria-label="Expand graph">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 3 3 3 3 8"></polyline><polyline points="16 3 21 3 21 8"></polyline><polyline points="8 21 3 21 3 16"></polyline><polyline points="16 21 21 21 21 16"></polyline></svg>
+                    </button>
+                    <div style="position:relative;padding-left:45px;margin-top:20px;padding-bottom:20px;">
+                        <div id="visualGraphStage" class="graph-space"></div>
+                    </div>
+                </div>
             </section>
         </section>
 
@@ -79,8 +140,10 @@
         </section>
     </main>
 
+    <hr>
+
     <footer>
-        <p>Copyright &copy; 2024 Divyang Verma. All rights reserved.</p>
+        <p>Copyright &copy; nobody? All rights denied.</p>
         <hr class="footBreak">
         <div class="bottomFoot"> <p>gmail exists.</p> <p>yes ik.</p> </div>
     </footer>
