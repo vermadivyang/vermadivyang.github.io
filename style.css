@@ -66,6 +66,7 @@ nav li {
     padding: 0 0.5rem;
 }
 
+
 nav a.navItem:hover .navName{
     color: #000000;
     transition:  0.4s ease-in-out;
