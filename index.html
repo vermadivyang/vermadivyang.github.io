@@ -11,30 +11,78 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#one">1</a></li>
-                <li><a href="#two">2</a></li>
+                <li><a href="#home" class="navItem"><p class="navName">Divyang Verma</p></a></li>
+                
+                <li><a href="#one" class="navItem"><p class="navNum">1.</p> <p class="navName">One</p></a></li>
+                <li><a href="#two" class="navItem"><p class="navNum">2.</p> <p class="navName">Two</p></a></li>
+                
+                <li><form class="searchForm">
+                    <input type="text" placeholder="Search..." class="searchInput">
+                    <button type="submit" class="searchButton">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </button>
+                </form></li>
+                
+                <li><a href="#negOne" class="navItem"><p class="navNum">-1.</p> <p class="navName">Negative One</p></a></li>
             </ul>
         </nav>
     </header>
 
+    <p class="sectioned">--- no AI btw</p>
+
     <main>
-        <section id="hero">
-            <h1>Temp</h1>
-            <p>Text.</p>
+        <section id="primary">
+            <section id="left">
+                <h1>This is a sentance, with no message.</h1>
+                <br>
+                <input type="text" placeholder="Search..." class="searchInput">
+                <p>TextTextTextTextTextTextTextText TextTextTextTextTextTextText TextTextTextTextTextTextTextText TextTextTextTextTextTextText TextTextTextTextTextTextText TextTextTextTextTextTextText.</p>
+            </section>
+            <section id="right">
+                <h1>Graph</h1>
+                <p>Not text.</p>
+            </section>
         </section>
 
-        <section id="thingy">
-            <h2>Big</h2>
-            <ul>
-                <li>small</li>
-                <li>tiny</li>
+        <hr>
+
+        <section id="secondary">
+            <div class="title">
+                <h2>Stuff with Stuff with Stuff</h2>   <a href="#link" class="randomLinkOne">link</a>
+            </div>
+
+            <br>
+
+            <ul class="list">
+                <li class="listItem">
+                    <img src="" alt="Tiny Image" class="imageInList">
+                    <div class="tinyTitle">
+                        <p class="tinyName">Tiny</p>     <p class="tinyYear">baby</p>
+                    </div>
+                    <p>Text of the Text of the Text of the Text Man.</p>
+                </li>
+                <li class="listItem">
+                    <img src="" alt="Tiny Image" class="imageInList">
+                    <div class="tinyTitle">
+                        <p class="tinyName">Little</p>     <p class="tinyYear">baby</p>
+                    </div>
+                    <p>Text of the Text of the Text of the Text Woooman.</p>
+                </li>
+                <li class="listItem">
+                    <img src="" alt="Tiny Image" class="imageInList">
+                    <div class="tinyTitle">
+                        <p class="tinyName">Lazy</p>     <p class="tinyYear">baby</p>
+                    </div>
+                    <p>Text of the Text of the Text of the Text Legend.</p>
+                </li>
             </ul>
         </section>
     </main>
 
     <footer>
-        <p>Divyang Verma.</p>
+        <p>Copyright &copy; 2024 Divyang Verma. All rights reserved.</p>
+        <hr class="footBreak">
+        <div class="bottomFoot"> <p>gmail exists.</p> <p>yes ik.</p> </div>
     </footer>
 
     <script src="script.js"></script>
