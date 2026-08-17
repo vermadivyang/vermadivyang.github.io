@@ -18,11 +18,19 @@ const initialText = textElementSource.innerText;
 let graphActivated = false;
 
 textElementSource.addEventListener("focus", function() {
+    textElementSource.classList.remove("unfocused");
+    textElementSource.classList.add("focused");
+
     if (!graphActivated) {
         graphPanel.classList.add("active");
         paragraphWrapper.classList.add("active");
         graphActivated = true;
     }
+});
+
+textElementSource.addEventListener("blur", function() {
+    textElementSource.classList.remove("focused");
+    textElementSource.classList.add("unfocused");
 });
 
 resetTextButton.addEventListener("click", function() {
@@ -33,10 +41,23 @@ resetTextButton.addEventListener("click", function() {
 
     graphActivated = false;
 
+    textElementSource.classList.remove("focused", "unfocused");
+
     textElementSource.blur();
 
     rebuildInterfaceMetrics();
 });
+
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('nav');
+    
+    if (window.scrollY > 0) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
 
 const commonStarters=new Set(["this","that","the","they","them","how","when","but","i","yet","me","my","myself","a","an","then","as"]);
 
