@@ -58,6 +58,22 @@ window.addEventListener('scroll', () => {
     }
   });
 
+  textElementSource.addEventListener("paste", function(event) {
+    event.preventDefault();
+
+    const text = event.clipboardData.getData("text/plain");
+
+    document.execCommand("insertText", false, text);
+});
+
+expandedTextEditor.addEventListener("paste", function(event) {
+    event.preventDefault();
+
+    const text = event.clipboardData.getData("text/plain");
+
+    document.execCommand("insertText", false, text);
+});
+
 
 const commonStarters=new Set(["this","that","the","they","them","how","when","but","i","yet","me","my","myself","a","an","then","as"]);
 
@@ -420,3 +436,7 @@ if(event.key==="Escape"&&textOverlay.classList.contains("open"))closeExpandedTex
 textElementSource.addEventListener("input",rebuildInterfaceMetrics);
 window.addEventListener("resize",rebuildInterfaceMetrics);
 rebuildInterfaceMetrics();
+
+
+//Scroll stuff
+
