@@ -1,5 +1,5 @@
 :root {
-  --bg-color: hsl(240, 27%, 2%);
+  --bg-color: #040406;
   --different-bg-color: hsl(240, 11%, 5%);
   
   /*Remediner: change script "No words to graph" color*/
@@ -17,8 +17,34 @@
   --chartgrid-color: #0d1a2b;
   --chartavgline-color: #00d7fd;
 
-  --scrollbar-color: #000c2c;
+  --scrollbar-color: #000920;
   --divider-color: #202835;
+}
+
+@property --c1 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsl(240, 17%, 1%);
+}@property --c2 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsl(240, 17%, 10%);
+}
+@property --c3 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsl(240, 17%, 5%);
+}
+
+@property --transC {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsl(240, 17%, 0%);
+}
+
+html {
+  --s: 1000px; /* control the size*/
+    background-color: var(--bg-color);
 }
 
 * {
@@ -31,6 +57,8 @@
 
 .scroll-container {
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -43,6 +71,30 @@ body {
     --body-pad: clamp(2.5%, 15vw - 7rem, 15%);
     padding:0 var(--body-pad);
 
+    background:
+    repeating-conic-gradient(from 30deg,#0000 0 120deg,var(--c3) 0 50%) 
+    calc(var(--s)/2) calc(var(--s)*tan(30deg)/2),
+    repeating-conic-gradient(from 30deg,var(--c1) 0 60deg,var(--c2) 0 120deg,var(--c3) 0 50%);
+    background-size: var(--s) calc(var(--s)*tan(30deg));
+
+    animation: bg-ani 10s linear infinite alternate;
+}
+@keyframes bg-ani {
+    0% {
+        --c1: hsl(240, 17%, 1%);
+        --c2: hsl(240, 17%, 2%);
+        --c3: hsl(240, 17%, 3%);
+    }
+    50% {
+        --c1: hsl(240, 17%, 3%);
+        --c2: hsl(240, 17%, 1%);
+        --c3: hsl(240, 17%, 2%);
+    }
+    100% {
+        --c1:hsl(240, 17%, 2%);
+        --c2: hsl(240, 17%, 3%);
+        --c3: hsl(240, 17%, 1%);
+    }
 }
 
 @media (max-width: 850px) {
@@ -61,8 +113,6 @@ header {
     left:5%;
     right:5%;
 
-
-
 }
 
 
@@ -76,12 +126,19 @@ nav {
     padding: 1rem 0;
 
     animation: slideIntro 1s forwards;
-    border-bottom: 2px var(--bg-color) solid;
+
+    border-bottom: 2px rgba(20, 25, 32, 0%) solid;
+    border-left: 2px rgba(20, 25, 32, 0%) solid;
+    border-right: 2px rgba(20, 25, 32, 0%) solid;
 
 }
 
 nav.scrolled {
-    border-bottom: 2px #141920 solid;
+
+    border-bottom: 2px rgba(20, 25, 32, 100%) solid;
+    border-left: 2px rgba(20, 25, 32, 100%) solid;
+    border-right: 2px rgba(20, 25, 32, 100%) solid;
+    
     transition: 0.25s ease-in-out;
 }
 
@@ -134,7 +191,6 @@ nav li {
 
 nav a.navItem:hover .navName {
     color: var(--highlighted-text-color);
-    transition:  0.4s ease-in-out;
 }
 
 nav a.navItem:hover {
@@ -262,15 +318,14 @@ ul {
     color: var(--text-color);
     text-decoration: none;
     margin-top: 0.5rem;
+    transition: ease-in-out 0.25s;
 }
 
 #secondary .title .randomLinkOne:hover {
     color: var(--highlighted-text-color);
-    transition: ease-in-out 0.25s;
 }
 
 #secondary .list {
-    background-color: var(--bg-color);
     margin-left: 1rem;
     margin-right: 1rem;
 
@@ -296,6 +351,8 @@ ul {
     width: 100%;
     border-radius: 10px;
 
+    transition: 0.4s ease-in-out;
+
 }
 
 #secondary .list .listItem .tinyTitle {
@@ -309,6 +366,8 @@ ul {
     width: 100%;
     margin: 0.3rem;
     font-size:1.15rem;
+    transition: 0.4s ease-in-out;
+    text-transform: uppercase;
 }
 
 #secondary .list .listItem .tinyTitle .tinyYear {
@@ -337,13 +396,45 @@ ul {
     height: auto;
     border-radius: 5px;
     border: 2px solid var(--border-color);
+    filter: grayscale(50%) brightness(0.8);
+    transition: ease-in-out 0.4s;
+
 }
 
-.imageInList:hover {
+.listItem:hover .imageInList {
     border-color: var(--highlighted-border-color);
-    transition: ease-in-out 0.25s;
+    filter: grayscale(0%) brightness(1);
 }
 
+#secondary .list .listItem:hover .tinyTitle .tinyName {
+    color: var(--highlighted-text-color);
+}
+
+.typeLabel {
+    font-size:14px;
+    font-weight:700;
+    color: #8b9096;
+
+    border:2px #8b9096 solid;  
+    border-radius: 7px; 
+
+    padding-top: 0.05rem; 
+    padding-bottom: 0.05rem; 
+    padding-right: 0.3rem; 
+    padding-left: 0.3rem; 
+
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+
+    text-transform: uppercase;
+
+    width: fit-content;
+}
+
+.projTypes {
+    display:flex;
+    justify-content: left;
+}
 
 .container {
     display: flex;
@@ -369,7 +460,6 @@ ul {
 }
 
 footer {
-    background-color: var(--bg-color);
     color: var(--text-color);
     text-align: center;
     padding: 1.5rem;
@@ -386,6 +476,10 @@ footer {
     border-top: 1px solid var(--divider-color);
     width: 85%;
     margin: 1rem auto;
+}
+
+.projIntroduction {
+    width:50%;
 }
 
 hr {
@@ -411,6 +505,11 @@ h1 {
 
     animation: popIntro 0.75s forwards;
 
+}
+
+.MediumTitle {
+    font-size: 2.25rem;
+    transition: 0.3s ease-in-out;
 }
 
 
@@ -443,6 +542,41 @@ p {
     margin-bottom: 4px;
 }
 
+
+.projExpl {
+    padding:1rem;
+    padding-top:1.25rem;
+    font-size: 1rem;
+    letter-spacing: .1em;
+    color: var(--text-color);
+    margin-bottom: 4px;
+    line-height: 1.75em;
+}
+
+.projBasicInfo {
+    margin-top: 0;
+    font-size: 1.1rem;
+    letter-spacing: .1em;
+    color: var(--text-color);
+    margin-bottom: 4px;
+}
+
+.GithubLink {
+    text-decoration: none;
+    margin-top: 0;
+    font-size: 1.1rem;
+    letter-spacing: .1em;
+    color: var(--text-color);
+    margin-bottom: 4px;
+}
+
+
+.githubLogo {
+    width: 23px;
+    height: 23px;
+    color:var(--text-color);
+}
+
 .sectioned {
     text-align: left;
     color: #8b9096;
@@ -451,15 +585,15 @@ p {
 }
 
 .reveal {
-    color: var(--bg-color);
+    color: rgba(0,0,0,0%);
     text-align: left;
     display: inline;
     margin: 1rem;
+    transition: 0.5s ease-in-out;
 }
 
 .revHover:hover {
     color: #b5bbc4;
-    transition: 0.5s ease-in-out;
 }
 
 .revHover:hover + .reveal {
@@ -470,6 +604,23 @@ p {
 .highligthThisText{
     color: var(--highlighted-text-color);
     display: inline;
+}
+
+.projImg {
+    width:100%;
+    height: auto;
+    filter: grayscale(75%) brightness(0.8);
+    border-radius:20px;
+
+    transition: 0.3s ease-in-out;
+}
+
+#primary:hover .projImg{
+    filter: grayscale(0%) brightness(1);
+}
+
+#primary:hover .MediumTitle{
+    color: var(--highlighted-text-color);
 }
 
 
@@ -489,7 +640,7 @@ p {
 }
 
 .container-box {
-    background: var(--bg-color);
+    background: none;
     border-radius: 12px;
     padding: 24px;
     /*box-shadow: 0 4px 6px -1px rgba(0,0,0,.05),0 2px 4px -1px rgba(0,0,0,.03);*/
@@ -509,7 +660,6 @@ p {
     max-height: 360px;
     padding: 16px;
     padding-bottom: 35px;
-    border: 2px solid var(--bg-color);
     border-radius: 8px;
     font-size: 1.15rem;
     line-height: 1.7;
@@ -658,7 +808,7 @@ p {
 .graph-space {
     height:330px;
     position:relative;
-    background:var(--bg-color);
+    background:none;
     overflow:visible;
 }
 
@@ -689,7 +839,7 @@ p {
 }
 
 .sentence-label-background {
-    fill:var(--bg-color);
+    fill:none;
     stroke:var(--chartgrid-color);
     stroke-width:2;
     rx:4;
