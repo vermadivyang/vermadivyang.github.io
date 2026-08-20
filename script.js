@@ -50,15 +50,13 @@ resetTextButton.addEventListener("click", function() {
 
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('nav');
-    
     if (window.scrollY > 0) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
-    }
-  });
+    }});
 
-  textElementSource.addEventListener("paste", function(event) {
+textElementSource.addEventListener("paste", function(event) {
     event.preventDefault();
 
     const text = event.clipboardData.getData("text/plain");
