@@ -423,17 +423,28 @@ ul {
     padding-right: 0.3rem; 
     padding-left: 0.3rem; 
 
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+
+
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
 
     text-transform: uppercase;
-
     width: fit-content;
+}
+.upBit {
+    color:var(--highlighted-button-bg-color);
+    transition: 0.25s ease-in-out;
+}
+
+.upBit:hover{
+    color:var(--highlighted-text-color);
 }
 
 .projTypes {
     display:flex;
     justify-content: left;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .container {
@@ -609,7 +620,7 @@ p {
 .projImg {
     width:100%;
     height: auto;
-    filter: grayscale(75%) brightness(0.8);
+    filter: grayscale(50%) brightness(0.75);
     border-radius:20px;
 
     transition: 0.3s ease-in-out;
@@ -839,7 +850,7 @@ p {
 }
 
 .sentence-label-background {
-    fill:none;
+    fill:var(--bg-color);
     stroke:var(--chartgrid-color);
     stroke-width:2;
     rx:4;
