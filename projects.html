@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divy <-</title>
+    <title>Divy Thingies</title>
     <meta name="description" content=" description of website">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -36,8 +36,6 @@
     <br>
     <br>
 
-    
-
     <main>
         <br>
 
@@ -47,11 +45,15 @@
         </section>
             
         <section id="primary">
-            <section id="left" style="padding: 7%;">
+            <section id="left" style="display: flex; padding: 2.5%; align-items:center;">
+                    <img src="NoImageFound.png" class="projImg">
+            </section>
+
+            <section id="right" style="padding: 2.5%;">
                 <h1 class="MediumTitle">Title which is <span class="highligthThisText">Big.</span></h1>
                 
                 <div class="projBasicInfo">
-                    <span class="upBit">Explain</span> &emsp; 
+                    <span class="upBitText">Explain</span> &emsp; 
                     <a href="https://github.com" class="GithubLink">
                         <img src="githubLogo.png" alt="GitHub Logo" class="githubLogo"> 
                         <span class="upBit">Go go!</span>
@@ -66,46 +68,58 @@
                     <p class="typeLabel">six</p>
                 </div>
             </section>
-            <section id="right" style="display: flex; padding: 2.5%; align-items:center;">
-                    <img src="NoImageFound.png" class="projImg">
-            </section>
+            
         </section>
+
 
         <br>
         <br>
         <hr>
         <br>
         <br>
-
+            
         <section id="primary">
-            <section id="left" style="display: flex; padding: 2.5%; align-items:center;">
-                    <img src="NoImageFound.png" class="projImg">
-            </section>
-
-            <section id="right" style="padding: 7%;">
-                <h1 class="MediumTitle">Title which is <span class="highligthThisText">Big.</span></h1>
+            <section id="left" style="padding: 2.5%;">
+                <h1 class="MediumTitle">Violin <span class="highligthThisText">Tuner</span></h1>
                 
                 <div class="projBasicInfo">
-                    <span class="upBit">Explain</span> &emsp; 
-                    <a href="https://github.com" class="GithubLink">
+                    <span class="upBitText">A Violin Tuner using FFT-Based Signal Processing</span> &emsp; 
+                    <a href="https://github.com/vermadivyang/SeeedXIAO_Tuner" class="GithubLink">
                         <img src="githubLogo.png" alt="GitHub Logo" class="githubLogo"> 
-                        <span class="upBit">Go go!</span>
+                        <span class="upBit">Github</span>
                     </a>
                 </div>
 
-                <p class="projExpl"> &emsp; &emsp; This is a paragraph. It's supposed to be about the image. The one left or right of this paragraph. But it's too long already so i'll cut it short.</p>
+                <p class="projExpl"> &emsp; &emsp; A violin tuner built on the Seeed XIAO nRF52840 Sense Plus, featuring a dedicated PDM microphone. It samples audio at 16 kHz, applies a Hann window and FFT (Fourier Transform), then analyzes harmonic frequency peaks to determine the played note and tuning error in cents.</p>
             
                 <div class="projTypes">
-                    <p class="typeLabel">one</p>
-                    <p class="typeLabel">two</p>
-                    <p class="typeLabel">six</p>
+                    <p class="typeLabel">C++</p>
+                    <p class="typeLabel">Python</p>
+                    <p class="typeLabel">Embeded System</p>
+                    <p class="typeLabel">DSP</p>
+                    <p class="typeLabel">FFT</p>
+                    <p class="typeLabel">PDM (audio)</p>
                 </div>
             </section>
-            
+
+            <section id="right" style="display: flex; padding: 2.5%; align-items:center;">
+                <button id="expandTextButton" class="text-expand-button" title="Expand text" aria-label="Expand text">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <img src="ViolinFFTimage.jpeg" class="projImg">
+            </section>
         </section>
-
-
     </main>
+
+    <div id="textOverlay" class="text-overlay">
+        <div class="expanded-text-box">
+            <button id="closeTextButton" class="text-close-button" title="Close expanded text" aria-label="Close expanded text">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <h2>More text ...</h2>
+            <div id="expandedTextEditor" class="expanded-text-editor" contenteditable="true"></div>
+        </div>
+    </div>
 
 
     <br>
